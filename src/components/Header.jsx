@@ -33,7 +33,9 @@ export default function Header() {
     <header>
       <div className="nav-inner">
         <div className="logo">
-          <span className="dot"></span>Konstantinos Tsikalas
+          <span className="dot"></span>
+          <span className="logo-full">Konstantinos Tsikalas</span>
+          <span className="logo-short">K. Tsikalas</span>
         </div>
 
         <nav className={`tabs ${open ? 'open' : ''}`}>
