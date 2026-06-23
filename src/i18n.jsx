@@ -25,7 +25,7 @@ export const dict = {
   card_role: { el: 'Web Designer & App Developer', en: 'Web Designer & App Developer' },
   card_stack: { el: 'React · Node · WordPress', en: 'React · Node · WordPress' },
 
-  about_title: { el: 'Σχετικά μου', en: 'About me' },
+  about_title: { el: 'Σχετικά με εμένα', en: 'About me' },
   about_eyebrow: { el: 'Σχετικά', en: 'About' },
   about_p1: { el: 'Είμαι web designer & developer με έδρα το Ηράκλειο. Σχεδιάζω και χτίζω ιστοσελίδες αλλά και web εφαρμογές που δείχνουν επαγγελματισμό από την πρώτη ματιά — γρήγορες, καθαρές, φτιαγμένες να μετατρέπουν επισκέπτες σε πελάτες.', en: 'I am a web designer & developer based in Heraklion. I design and build websites and web apps that look professional from the first glance — fast, clean, made to turn visitors into clients.' },
   about_p2: { el: 'Έχω δουλέψει σε projects από premium tattoo studio μέχρι μεγάλο εκπαιδευτικό όμιλο με τρία παραρτήματα, και ξέρω να προσαρμόζω το ύφος της σελίδας στο brand κάθε πελάτη — όχι το αντίστροφο.', en: "I have worked on projects ranging from a premium tattoo studio to a large educational group with three locations, and I know how to adapt the site to each client's brand — not the other way around." },

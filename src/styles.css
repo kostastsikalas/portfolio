@@ -121,7 +121,10 @@ header{
 
 /* ---------- HERO ---------- */
 .hero{padding:96px 0 100px;}
-.hero-bold{max-width:900px; padding:30px 0 10px;}
+.hero-bold{max-width:920px; margin:0 auto; padding:40px 0 10px; text-align:center;}
+.hero-bold .eyebrow{justify-content:center;}
+.hero-bold .hero-sub{margin-left:auto; margin-right:auto;}
+.hero-bold .btn-row{justify-content:center;}
 .hero-headline{font-size:clamp(34px,5.5vw,58px); line-height:1.08; margin:34px 0 20px; letter-spacing:-0.03em;}
 .hero-headline-huge{font-size:clamp(44px,9vw,92px); line-height:1.02; margin:22px 0 26px;}
 .hero-headline .hl{color:var(--accent);}
