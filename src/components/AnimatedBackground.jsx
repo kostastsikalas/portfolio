@@ -53,7 +53,7 @@ export default function AnimatedBackground() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, 2.6, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(176,125,79,0.85)'
+        ctx.fillStyle = 'rgba(234,88,12,0.85)'
         ctx.fill()
       }
       const LINK = 150
@@ -66,7 +66,7 @@ export default function AnimatedBackground() {
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(176,125,79,${0.30 * (1 - d / LINK)})`
+            ctx.strokeStyle = `rgba(234,88,12,${0.30 * (1 - d / LINK)})`
             ctx.lineWidth = 1.2
             ctx.stroke()
           }
