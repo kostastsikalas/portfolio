@@ -65,6 +65,40 @@ export default function Work() {
             </a>
           </div>
         </div>
+
+        <div className="work-card">
+          <div className="work-thumb"><img src="/work/iek.png" alt="Ι.Ι.Ε.Κ. Επιμελητηρίου Ηρακλείου" loading="lazy" /></div>
+          <div className="work-top">
+            <span className="wname">{t('work5_cat')}</span>
+            <span className="wstatus">{t('work_live')}</span>
+          </div>
+          <div className="work-body">
+            <h3>{t('work5_title')}</h3>
+            <p>{t('work5_desc')}</p>
+            <div className="work-tags">
+              <span>Web Design</span><span>WordPress</span><span>Development</span>
+            </div>
+            <a className="work-link" href="https://iek.katartisi.gr/" target="_blank" rel="noopener noreferrer">
+              <span>{t('work_visit')}</span> →
+            </a>
+          </div>
+        </div>
+
+        <div className="work-card">
+          <div className="work-thumb"><img src="/work/isaekcms.png" alt="ISAEK — Σύστημα Διαχείρισης ΙΕΚ (mockup, θολωμένα προσωπικά δεδομένα)" loading="lazy" /></div>
+          <div className="work-top">
+            <span className="wname">{t('work4_cat')}</span>
+            <span className="wstatus wstatus-internal">{t('work_internal')}</span>
+          </div>
+          <div className="work-body">
+            <h3>{t('work4_title')}</h3>
+            <p>{t('work4_desc')}</p>
+            <div className="work-tags">
+              <span>React</span><span>Supabase</span><span>Dashboard</span>
+            </div>
+            <span className="work-note">{t('work4_note')}</span>
+          </div>
+        </div>
       </div>
 
       <div className="work-secondary">
