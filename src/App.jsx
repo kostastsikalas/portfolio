@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Services from './components/Services.jsx'
+import Marketing from './components/Marketing.jsx'
 import Work from './components/Work.jsx'
 import Process from './components/Process.jsx'
 import Contact from './components/Contact.jsx'
@@ -19,6 +20,7 @@ export default function App() {
         <Hero />
         <About />
         <Services />
+        <Marketing />
         <Work />
         <Process />
         <Contact />

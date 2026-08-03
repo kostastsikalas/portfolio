@@ -172,6 +172,22 @@ header{
 .svc-fn{font-size:18px; font-weight:600; color:var(--text); margin-bottom:12px;}
 .svc-card p{color:var(--text-muted); font-size:15px;}
 
+/* ---------- MARKETING ---------- */
+.mkt-heading{max-width:660px;}
+.mkt-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; margin-top:12px;}
+@media (max-width:860px){.mkt-grid{grid-template-columns:1fr; gap:40px;}}
+.mkt-lead{font-size:17px; color:var(--text); line-height:1.7; margin-bottom:16px; max-width:56ch;}
+.mkt-features{list-style:none; display:grid; gap:12px; margin:26px 0 30px;}
+.mkt-features li{display:flex; align-items:center; gap:12px; font-size:15.5px; font-weight:500; color:var(--text);}
+.mkt-check{width:24px; height:24px; border-radius:50%; background:var(--accent-soft); color:var(--accent); display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0;}
+.mkt-visual{position:relative;}
+.mkt-svg{width:100%; height:auto; display:block; filter:drop-shadow(0 24px 48px rgba(16,24,40,0.14));}
+.mkt-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:64px;}
+@media (max-width:720px){.mkt-stats{grid-template-columns:1fr; gap:14px;}}
+.mkt-stat{background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow);}
+.mkt-stat-num{display:block; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:44px; color:var(--accent); letter-spacing:-0.02em; line-height:1;}
+.mkt-stat-label{display:block; margin-top:12px; font-size:15px; color:var(--text-muted); line-height:1.5;}
+
 /* ---------- WORK ---------- */
 .work-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:22px;}
 @media (max-width:780px){.work-grid{grid-template-columns:1fr;}}

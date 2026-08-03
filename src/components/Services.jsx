@@ -5,6 +5,7 @@ import Reveal from './Reveal.jsx'
 const SERVICES = [
   { title: 'svc1_title', key: 'svc1' },
   { title: 'svc6_title', key: 'svc6' },
+  { title: 'svc7_title', key: 'svc7' },
   { title: 'svc2_title', key: 'svc2' },
   { title: 'svc3_title', key: 'svc3' },
   { title: 'svc4_title', key: 'svc4' },
