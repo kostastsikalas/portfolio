@@ -13,6 +13,24 @@ export default function Work() {
 
       <div className="work-grid">
         <div className="work-card">
+          <div className="work-thumb"><img src="/work/giatros.png" alt="Ιωάννης Ν. Ανδρομιδάς — Ωτορινολαρυγγολόγος" loading="lazy" /></div>
+          <div className="work-top">
+            <span className="wname">{t('work6_cat')}</span>
+            <span className="wstatus">{t('work_live')}</span>
+          </div>
+          <div className="work-body">
+            <h3>{t('work6_title')}</h3>
+            <p>{t('work6_desc')}</p>
+            <div className="work-tags">
+              <span>Next.js</span><span>Multilingual</span><span>Admin panel</span>
+            </div>
+            <a className="work-link" href="https://ioannisandromidas.gr/" target="_blank" rel="noopener noreferrer">
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="work-card">
           <div className="work-thumb"><img src="/work/maze.png" alt="Maze Tattoo Studio" loading="lazy" /></div>
           <div className="work-top">
             <span className="wname">{t('work1_cat')}</span>
@@ -25,7 +43,7 @@ export default function Work() {
               <span>Web Design</span><span>Development</span><span>Dark UI</span>
             </div>
             <a className="work-link" href="https://mazetattoostudio.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> →
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -43,7 +61,7 @@ export default function Work() {
               <span>Web Design</span><span>Development</span><span>Multi-page</span>
             </div>
             <a className="work-link" href="https://www.1na.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> →
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -61,7 +79,7 @@ export default function Work() {
               <span>Web Design</span><span>Development</span><span>WordPress</span>
             </div>
             <a className="work-link" href="https://katartisi.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> →
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -79,7 +97,7 @@ export default function Work() {
               <span>Web Design</span><span>WordPress</span><span>Development</span>
             </div>
             <a className="work-link" href="https://iek.katartisi.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> →
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>

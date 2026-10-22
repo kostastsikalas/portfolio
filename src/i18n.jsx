@@ -82,7 +82,7 @@ export const dict = {
 
   work_title: { el: 'Επιλεγμένη δουλειά', en: 'Selected work' },
   work_eyebrow: { el: 'Δουλειά', en: 'Work' },
-  work_sub: { el: 'Δύο πρόσφατα projects, δύο εντελώς διαφορετικά brands.', en: 'Two recent projects, two completely different brands.' },
+  work_sub: { el: 'Πρόσφατα projects — από tattoo studio και ιατρείο μέχρι εκπαιδευτικούς οργανισμούς.', en: 'Recent projects — from a tattoo studio and a clinic to educational institutions.' },
   work1_cat: { el: 'Tattoo Studio', en: 'Tattoo Studio' },
   work2_cat: { el: 'Εκπαίδευση', en: 'Education' },
   work3_cat: { el: 'Κατάρτιση', en: 'Training' },
@@ -95,6 +95,9 @@ export const dict = {
   work5_cat: { el: 'Εκπαίδευση / ΙΕΚ', en: 'Education / VET' },
   work5_title: { el: 'Ι.Ι.Ε.Κ. Επιμελητηρίου Ηρακλείου', en: 'ISAEK — Heraklion Chamber' },
   work5_desc: { el: 'Δημόσιο site για το Ι.Ι.Ε.Κ. των Τεχνικών Σχολών Επιμελητηρίου Ηρακλείου — ειδικότητες, εκπαιδευτές, εγκαταστάσεις, 360° ξενάγηση και online εκδήλωση ενδιαφέροντος.', en: 'Public site for the vocational institute of the Heraklion Chamber Technical Schools — specialties, trainers, facilities, 360° tour and online interest form.' },
+  work6_cat: { el: 'Υγεία / Ιατρείο', en: 'Healthcare / Clinic' },
+  work6_title: { el: 'Ιωάννης Ν. Ανδρομιδάς — Ω.Ρ.Λ.', en: 'Ioannis N. Andromidas — ENT' },
+  work6_desc: { el: 'Site για χειρουργό ωτορινολαρυγγολόγο στη Χερσόνησο — σε 3 γλώσσες (EL/EN/DE), με υπηρεσίες, άρθρα υγείας και δικό του admin panel για να ανεβάζει ο γιατρός άρθρα και ανακοινώσεις.', en: 'Website for an ENT surgeon in Hersonissos — in 3 languages (EL/EN/DE), with services, health articles and a custom admin panel so the doctor can publish articles and announcements directly.' },
   work_live: { el: 'Ενεργό', en: 'Live' },
   work_visit: { el: 'Δες τη σελίδα', en: 'Visit site' },
   work1_desc: { el: 'Premium tattoo & piercing studio στο Ηράκλειο. Σκούρο, μοντέρνο design φτιαγμένο να αναδεικνύει fine line, geometric και micro-realism δουλειές.', en: 'Premium tattoo & piercing studio in Heraklion. Dark, modern design built to showcase fine line, geometric, and micro-realism work.' },
