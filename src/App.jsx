@@ -9,19 +9,19 @@ import Work from './components/Work.jsx'
 import Process from './components/Process.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
-import AnimatedBackground from './components/AnimatedBackground.jsx'
+import Backdrop from './components/Backdrop.jsx'
 
 export default function App() {
   return (
     <LangProvider>
-      <AnimatedBackground />
+      <Backdrop />
       <Header />
       <main className="wrap">
         <Hero />
+        <Work />
         <About />
         <Services />
         <Marketing />
-        <Work />
         <Process />
         <Contact />
       </main>

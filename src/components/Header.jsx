@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useLang } from '../i18n.jsx'
 
-const SECTIONS = ['hero', 'about', 'services', 'work', 'contact']
+const SECTIONS = ['hero', 'work', 'about', 'services', 'contact']
 const LABELS = {
   hero: 'nav_home',
+  work: 'nav_work',
   about: 'nav_about',
   services: 'nav_services',
-  work: 'nav_work',
   contact: 'nav_contact'
 }
 
