@@ -13,6 +13,24 @@ export default function Work() {
 
       <div className="work-grid">
         <div className="work-card">
+          <div className="work-thumb"><img src="/work/hermanos.png" alt="Hermanos Rentals — ενοικίαση scooter και διαμερισμάτων" loading="lazy" /></div>
+          <div className="work-top">
+            <span className="wname">{t('work8_cat')}</span>
+            <span className="wstatus">{t('work_live')}</span>
+          </div>
+          <div className="work-body">
+            <h3>Hermanos Rentals</h3>
+            <p>{t('work8_desc')}</p>
+            <div className="work-tags">
+              <span>Web Design</span><span>Multilingual</span><span>Online booking</span>
+            </div>
+            <a className="work-link" href="https://www.hermanosrentals.com/" target="_blank" rel="noopener noreferrer">
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="work-card">
           <div className="work-thumb"><img src="/work/casa-ventossa.png" alt="Cassa Ventossa — εξοχική κατοικία στον Μόχλο Κρήτης" loading="lazy" /></div>
           <div className="work-top">
             <span className="wname">{t('work7_cat')}</span>
