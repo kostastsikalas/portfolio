@@ -13,6 +13,24 @@ export default function Work() {
 
       <div className="work-grid">
         <div className="work-card">
+          <div className="work-thumb"><img src="/work/casa-ventossa.png" alt="Cassa Ventossa — εξοχική κατοικία στον Μόχλο Κρήτης" loading="lazy" /></div>
+          <div className="work-top">
+            <span className="wname">{t('work7_cat')}</span>
+            <span className="wstatus">{t('work_live')}</span>
+          </div>
+          <div className="work-body">
+            <h3>Cassa Ventossa</h3>
+            <p>{t('work7_desc')}</p>
+            <div className="work-tags">
+              <span>Web Design</span><span>Bilingual</span><span>Booking links</span>
+            </div>
+            <a className="work-link" href="https://www.casa-ventossa.gr/" target="_blank" rel="noopener noreferrer">
+              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="work-card">
           <div className="work-thumb"><img src="/work/giatros.png" alt="Ιωάννης Ν. Ανδρομιδάς — Ωτορινολαρυγγολόγος" loading="lazy" /></div>
           <div className="work-top">
             <span className="wname">{t('work6_cat')}</span>

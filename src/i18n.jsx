@@ -82,7 +82,7 @@ export const dict = {
 
   work_title: { el: 'Επιλεγμένη δουλειά', en: 'Selected work' },
   work_eyebrow: { el: 'Δουλειά', en: 'Work' },
-  work_sub: { el: 'Πρόσφατα projects — από tattoo studio και ιατρείο μέχρι εκπαιδευτικούς οργανισμούς.', en: 'Recent projects — from a tattoo studio and a clinic to educational institutions.' },
+  work_sub: { el: 'Πρόσφατα projects — από εξοχική κατοικία, tattoo studio και ιατρείο μέχρι εκπαιδευτικούς οργανισμούς.', en: 'Recent projects — from a holiday home, a tattoo studio and a clinic to educational institutions.' },
   work1_cat: { el: 'Tattoo Studio', en: 'Tattoo Studio' },
   work2_cat: { el: 'Εκπαίδευση', en: 'Education' },
   work3_cat: { el: 'Κατάρτιση', en: 'Training' },
@@ -98,6 +98,8 @@ export const dict = {
   work6_cat: { el: 'Υγεία / Ιατρείο', en: 'Healthcare / Clinic' },
   work6_title: { el: 'Ιωάννης Ν. Ανδρομιδάς — Ω.Ρ.Λ.', en: 'Ioannis N. Andromidas — ENT' },
   work6_desc: { el: 'Site για χειρουργό ωτορινολαρυγγολόγο στη Χερσόνησο — σε 3 γλώσσες (EL/EN/DE), με υπηρεσίες, άρθρα υγείας και δικό του admin panel για να ανεβάζει ο γιατρός άρθρα και ανακοινώσεις.', en: 'Website for an ENT surgeon in Hersonissos — in 3 languages (EL/EN/DE), with services, health articles and a custom admin panel so the doctor can publish articles and announcements directly.' },
+  work7_cat: { el: 'Τουρισμός / Ενοικίαση', en: 'Hospitality / Rental' },
+  work7_desc: { el: 'Site για εξοχική κατοικία με θέα στη θάλασσα στον Μόχλο Κρήτης — δίγλωσσο (EL/EN), με cinematic hero, gallery ανά χώρο, πληροφορίες περιοχής, κριτικές και απευθείας κράτηση μέσω Booking.com & Airbnb.', en: 'Website for a sea-view holiday home in Mochlos, Crete — bilingual (EL/EN), with a cinematic hero, room-by-room gallery, area guide, guest reviews and direct booking via Booking.com & Airbnb.' },
   work_live: { el: 'Ενεργό', en: 'Live' },
   work_visit: { el: 'Δες τη σελίδα', en: 'Visit site' },
   work1_desc: { el: 'Premium tattoo & piercing studio στο Ηράκλειο. Σκούρο, μοντέρνο design φτιαγμένο να αναδεικνύει fine line, geometric και micro-realism δουλειές.', en: 'Premium tattoo & piercing studio in Heraklion. Dark, modern design built to showcase fine line, geometric, and micro-realism work.' },
