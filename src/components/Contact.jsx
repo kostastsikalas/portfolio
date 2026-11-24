@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useLang } from '../i18n.jsx'
-import Reveal from './Reveal.jsx'
+import { Lines, R } from '../motion.jsx'
+import Btn from './Btn.jsx'
+import AnimatedBackground from './AnimatedBackground.jsx'
 
 export default function Contact() {
   const { t } = useLang()
@@ -29,24 +31,22 @@ export default function Contact() {
   }
 
   return (
-    <Reveal as="section" id="contact">
-      <div className="eyebrow">{t('contact_eyebrow')}</div>
-      <h2 className="section-title">{t('contact_title')}</h2>
-      <p className="section-sub">{t('contact_sub')}</p>
+    <section id="contact" className="contact" data-theme="dark">
+      <AnimatedBackground />
+      <div className="contact-in">
+        <R className="sec-label"><span className="mono">[ 07 ]</span><span className="mono">{t('contact_eyebrow')}</span></R>
+        <Lines html={t('contact_head')} className="contact-title" />
 
-      <div className="contact-grid">
-        <div>
-          <div className="contact-intro">
-            <p>{t('contact_intro')}</p>
-            <div className="contact-reply"><span className="pulse"></span>{t('contact_reply')}</div>
-          </div>
-
-          <div className="contact-links">
-            <a href="mailto:konstantinostsikalas@gmail.com">✉ konstantinostsikalas@gmail.com</a>
-            <a href="tel:+306947227002">☎ +30 694 722 7002</a>
-          </div>
-
-          <div className="social-row">
+        <div className="contact-grid">
+          <div className="contact-side">
+            <R as="p" className="lede">{t('contact_intro')}</R>
+            <R d={0.08} className="contact-reply"><i className="live-dot" />{t('contact_reply')}</R>
+            <R d={0.14} className="contact-links">
+              <a className="big-link" href="mailto:konstantinostsikalas@gmail.com">konstantinostsikalas@gmail.com</a>
+              <a className="big-link" href="tel:+306947227002">+30 694 722 7002</a>
+            </R>
+            <R d={0.2}>
+              <div className="social-row">
             <a href="https://www.facebook.com/kostas.tsikalas" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg viewBox="0 0 24 24"><path d="M13 22v-9h3l1-4h-4V7c0-1.1.3-1.9 2-1.9h2V1.1C16.6 1 15.4 1 14 1c-3 0-5 1.8-5 5.2V9H6v4h3v9h4z" /></svg>
             </a>
@@ -57,29 +57,34 @@ export default function Contact() {
               <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8.25h4.6V23H.2V8.25zM8.4 8.25h4.4v2.01h.06c.6-1.13 2.1-2.33 4.3-2.33 4.6 0 5.45 3.03 5.45 6.97V23h-4.6v-6.93c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.65 1.8-2.65 3.66V23H8.4V8.25z" /></svg>
             </a>
           </div>
+            </R>
+          </div>
+
+          <R as="form" d={0.1} className="contact-form" onSubmit={handleSubmit}>
+            <div className="field">
+              <input id="name" name="name" type="text" required placeholder=" " value={form.name} onChange={handleChange} />
+              <label htmlFor="name">{t('form_name')}</label>
+            </div>
+            <div className="field">
+              <input id="email" name="email" type="email" required placeholder=" " value={form.email} onChange={handleChange} />
+              <label htmlFor="email">{t('form_email')}</label>
+            </div>
+            <div className="field">
+              <textarea id="message" name="message" required placeholder=" " rows="4" value={form.message} onChange={handleChange}></textarea>
+              <label htmlFor="message">{t('form_message')}</label>
+            </div>
+            <div className="form-foot">
+              <Btn as="button" type="submit" variant="accent" disabled={status === 'sending'}>
+                {status === 'sending' ? t('form_sending') : t('form_submit')}
+              </Btn>
+              <p className="form-msg" role="status" aria-live="polite">
+                {status === 'success' && <span className="ok">{t('form_success')}</span>}
+                {status === 'error' && <span className="err">{t('form_error')}</span>}
+              </p>
+            </div>
+          </R>
         </div>
-
-        <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label htmlFor="name">{t('form_name')}</label>
-            <input id="name" name="name" type="text" required value={form.name} onChange={handleChange} />
-          </div>
-          <div className="field">
-            <label htmlFor="email">{t('form_email')}</label>
-            <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} />
-          </div>
-          <div className="field">
-            <label htmlFor="message">{t('form_message')}</label>
-            <textarea id="message" name="message" required value={form.message} onChange={handleChange}></textarea>
-          </div>
-          <button className="btn btn-primary" type="submit" style={{ alignSelf: 'flex-start' }} disabled={status === 'sending'}>
-            {status === 'sending' ? t('form_sending') : t('form_submit')}
-          </button>
-
-          {status === 'success' && <p style={{ color: 'var(--accent)', fontSize: 14 }}>{t('form_success')}</p>}
-          {status === 'error' && <p style={{ color: '#f87171', fontSize: 14 }}>{t('form_error')}</p>}
-        </form>
       </div>
-    </Reveal>
+    </section>
   )
 }

@@ -1,6 +1,29 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 export const dict = {
+  // ---- redesign: hand-set display lines ("|" = line break, <em> = serif accent) ----
+  hero_eyebrow: { el: 'Web designer & developer — Ηράκλειο', en: 'Web designer & developer — Heraklion' },
+  hero_lines: { el: 'Η ψηφιακή σου|παρουσία, φτιαγμένη|να <em>ξεχωρίζει.</em>', en: 'Your digital|presence, built|to <em>stand out.</em>' },
+  hero_time: { el: 'Ηράκλειο', en: 'Heraklion' },
+  hero_scroll: { el: 'Scroll', en: 'Scroll' },
+  hero_loc_plain: { el: 'Ηράκλειο, Κρήτη', en: 'Heraklion, Crete' },
+  nav_cta: { el: 'Ας μιλήσουμε', en: "Let's talk" },
+  manifesto_label: { el: 'Η προσέγγιση', en: 'The approach' },
+  manifesto: {
+    el: 'Δεν φτιάχνω απλώς ιστοσελίδες. Χτίζω ψηφιακά εργαλεία που φέρνουν *πελάτες* — γρήγορα, καθαρά και σχεδιασμένα γύρω από τη δική σου επιχείρηση, από το πρώτο σκίτσο μέχρι το production.',
+    en: "I don't just make websites. I build digital tools that bring in *customers* — fast, clean, and designed around your business, from the first sketch to production."
+  },
+  manifesto_sub: { el: 'Ένας άνθρωπος, από τον σχεδιασμό μέχρι τον κώδικα. <span>Χωρίς ενδιάμεσους.</span>', en: 'One person, from design to code. <span>No middlemen.</span>' },
+  work_head: { el: 'Επιλεγμένη|<em>δουλειά.</em>', en: 'Selected|<em>work.</em>' },
+  work_more: { el: 'Επίσης', en: 'Also' },
+  about_head: { el: 'Σχεδιάζω και χτίζω,|<em>από την αρχή ως το τέλος.</em>', en: 'I design and build,|<em>start to finish.</em>' },
+  edu_azure_date: { el: 'Φεβ 2026', en: 'Feb 2026' },
+  services_head: { el: 'Τι μπορώ να|<em>φτιάξω για σένα.</em>', en: 'What I can|<em>build for you.</em>' },
+  mkt_head: { el: 'Αν δεν σε βρίσκουν στο Google,|<em>δεν υπάρχεις.</em>', en: "If Google can't find you,|<em>you don't exist.</em>" },
+  process_head: { el: 'Από την ιδέα|<em>στο production.</em>', en: 'From idea|<em>to production.</em>' },
+  contact_head: { el: 'Πάμε να φτιάξουμε|<em>κάτι μαζί.</em>', en: "Let's build|<em>something together.</em>" },
+  footer_top: { el: 'Πάνω', en: 'Top' },
+
   hero_title: { el: 'Η ψηφιακή σου παρουσία, φτιαγμένη να <span class="hl">ξεχωρίζει</span>.', en: 'Your digital presence, built to <span class="hl">stand out</span>.' },
   hero_sub: { el: 'Σχεδιασμός & ανάπτυξη ιστοσελίδων και web εφαρμογών στο Ηράκλειο Κρήτης — από την ιδέα μέχρι το production.', en: 'Design & development of websites and web apps in Heraklion, Crete — from idea to production.' },
   hero_status: { el: 'Διαθέσιμος για νέα projects', en: 'Available for new projects' },

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 
-// Διαδραστικό δίκτυο σημείων (καραμελέ) που αντιδρά στο ποντίκι.
+// Διαδραστικό δίκτυο σημείων που αντιδρά στο ποντίκι — backdrop της ενότητας επικοινωνίας.
+// Τρέχει μόνο όταν η ενότητα είναι στην οθόνη.
 export default function AnimatedBackground() {
   const canvasRef = useRef(null)
 
@@ -21,7 +22,7 @@ export default function AnimatedBackground() {
       canvas.width = w * dpr
       canvas.height = h * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      const count = Math.min(Math.round((w * h) / 8500), 200)
+      const count = Math.min(Math.round((w * h) / 11000), 140)
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -53,7 +54,7 @@ export default function AnimatedBackground() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, 2.6, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(234,88,12,0.85)'
+        ctx.fillStyle = 'rgba(234,88,12,0.7)'
         ctx.fill()
       }
       const LINK = 150
@@ -66,7 +67,7 @@ export default function AnimatedBackground() {
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(234,88,12,${0.30 * (1 - d / LINK)})`
+            ctx.strokeStyle = `rgba(234,88,12,${0.24 * (1 - d / LINK)})`
             ctx.lineWidth = 1.2
             ctx.stroke()
           }
@@ -85,14 +86,19 @@ export default function AnimatedBackground() {
       mouse.y = -9999
     }
 
-    let raf
+    let raf = 0
     resize()
-    step()
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !raf) raf = requestAnimationFrame(step)
+      if (!e.isIntersecting && raf) { cancelAnimationFrame(raf); raf = 0 }
+    })
+    io.observe(canvas)
     window.addEventListener('resize', resize)
     window.addEventListener('mousemove', onMove)
     window.addEventListener('mouseout', onLeave)
     return () => {
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', resize)
       window.removeEventListener('mousemove', onMove)
       window.removeEventListener('mouseout', onLeave)
