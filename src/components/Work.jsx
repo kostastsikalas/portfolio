@@ -29,8 +29,8 @@ export default function Work() {
   })
 
   return (
-    <section id="work" className="work" data-theme="dark">
-      <SectionHead num="02" label={t('work_eyebrow')} html={t('work_head')} sub={t('work_sub')} />
+    <section id="work" className="work" data-theme="tint">
+      <SectionHead num="03" label={t('work_eyebrow')} html={t('work_head')} sub={t('work_sub')} />
 
       <div className="stack" ref={stackRef}>
         {PROJECTS.map((p, i) => (
@@ -52,7 +52,7 @@ export default function Work() {
                 <div className="card-act">
                   {p.internal
                     ? <span className="card-note">{t('work4_note')}</span>
-                    : <Btn href={p.url} external variant="light">{t('work_visit')}</Btn>}
+                    : <Btn href={p.url} external>{t('work_visit')}</Btn>}
                 </div>
               </div>
               <a

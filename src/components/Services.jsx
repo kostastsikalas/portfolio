@@ -18,7 +18,7 @@ export default function Services() {
   const { t } = useLang()
   return (
     <section id="services" className="services" data-theme="light">
-      <SectionHead num="04" label={t('services_eyebrow')} html={t('services_head')} sub={t('services_sub')} />
+      <SectionHead num="05" label={t('services_eyebrow')} html={t('services_head')} sub={t('services_sub')} />
       <ol className="svc-list">
         {SERVICES.map(([title, body], i) => (
           <R as="li" key={title} d={i * 0.05} className="svc">

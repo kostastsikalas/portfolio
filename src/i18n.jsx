@@ -23,6 +23,7 @@ export const dict = {
   process_head: { el: 'Από την ιδέα|<em>στο production.</em>', en: 'From idea|<em>to production.</em>' },
   contact_head: { el: 'Πάμε να φτιάξουμε|<em>κάτι μαζί.</em>', en: "Let's build|<em>something together.</em>" },
   footer_top: { el: 'Πάνω', en: 'Top' },
+  back_top: { el: 'Επιστροφή στην αρχή', en: 'Back to top' },
 
   hero_title: { el: 'Η ψηφιακή σου παρουσία, φτιαγμένη να <span class="hl">ξεχωρίζει</span>.', en: 'Your digital presence, built to <span class="hl">stand out</span>.' },
   hero_sub: { el: 'Σχεδιασμός & ανάπτυξη ιστοσελίδων και web εφαρμογών στο Ηράκλειο Κρήτης — από την ιδέα μέχρι το production.', en: 'Design & development of websites and web apps in Heraklion, Crete — from idea to production.' },

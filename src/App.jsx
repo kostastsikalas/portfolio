@@ -13,6 +13,7 @@ import Marketing from './components/Marketing.jsx'
 import Process from './components/Process.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import BackToTop from './components/BackToTop.jsx'
 
 function shouldPlayIntro() {
   if (prefersReduced()) return false
@@ -74,14 +75,15 @@ export default function App() {
         <main>
           <Hero />
           <Manifesto />
+          <Marketing />
           <Work />
           <About />
           <Services />
-          <Marketing />
           <Process />
           <Contact />
         </main>
         <Footer />
+        <BackToTop />
       </ReadyContext.Provider>
     </LangProvider>
   )

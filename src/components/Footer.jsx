@@ -8,7 +8,7 @@ export default function Footer() {
   const [ref, inView] = useInView({ threshold: 0.25 })
   const word = 'Tsikalas'
   return (
-    <footer className="site-footer" data-theme="dark">
+    <footer className="site-footer" data-theme="tint">
       <div className="foot-row">
         <p>{t('footer_copy')}</p>
         <p className="mono">{t('hero_loc_plain')}</p>

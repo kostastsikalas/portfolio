@@ -72,7 +72,7 @@ export default function Marketing() {
 
   return (
     <section id="marketing" className="marketing" data-theme="light">
-      <SectionHead num="05" label={t('mkt_eyebrow')} html={t('mkt_head')} />
+      <SectionHead num="02" label={t('mkt_eyebrow')} html={t('mkt_head')} />
 
       <div className="mkt-grid">
         <div className="mkt-copy">
