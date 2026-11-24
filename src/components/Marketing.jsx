@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLang } from '../i18n.jsx'
-import Reveal from './Reveal.jsx'
+import { SectionHead, R, useInView, prefersReduced } from '../motion.jsx'
+import Btn from './Btn.jsx'
 
 function SearchMock() {
   const { t } = useLang()
@@ -45,43 +46,56 @@ function SearchMock() {
   )
 }
 
+function CountUp({ value }) {
+  const [ref, inView] = useInView({ threshold: 0.5 })
+  const target = parseInt(value, 10)
+  const suffix = value.replace(/^[0-9]+/, '')
+  const [n, setN] = useState(prefersReduced() ? target : 0)
+  useEffect(() => {
+    if (!inView || prefersReduced()) return
+    let raf
+    const t0 = performance.now()
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / 1400)
+      setN(Math.round((1 - Math.pow(1 - p, 4)) * target))
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [inView, target])
+  return <span ref={ref} className="stat-n">{n}{suffix}</span>
+}
+
 export default function Marketing() {
   const { t } = useLang()
   const features = ['mkt_f1', 'mkt_f2', 'mkt_f3', 'mkt_f4']
 
   return (
-    <Reveal as="section" id="marketing">
-      <div className="eyebrow">{t('mkt_eyebrow')}</div>
-      <h2 className="section-title mkt-heading">{t('mkt_title')}</h2>
+    <section id="marketing" className="marketing" data-theme="light">
+      <SectionHead num="05" label={t('mkt_eyebrow')} html={t('mkt_head')} />
 
       <div className="mkt-grid">
         <div className="mkt-copy">
-          <p className="mkt-lead">{t('mkt_p1')}</p>
-          <p className="mkt-lead">{t('mkt_p2')}</p>
-          <ul className="mkt-features">
-            {features.map((f) => (
-              <li key={f}><span className="mkt-check">✓</span>{t(f)}</li>
+          <R as="p" className="lede">{t('mkt_p1')}</R>
+          <R as="p" d={0.08}>{t('mkt_p2')}</R>
+          <R as="ul" d={0.16} className="mkt-features">
+            {features.map((f, i) => (
+              <li key={f}><span className="mono">0{i + 1}</span>{t(f)}</li>
             ))}
-          </ul>
-          <a className="btn btn-primary" href="#contact">{t('mkt_cta')}</a>
+          </R>
+          <R d={0.24}><Btn href="#contact">{t('mkt_cta')}</Btn></R>
         </div>
-        <div className="mkt-visual"><SearchMock /></div>
+        <R d={0.1} className="mkt-visual"><SearchMock /></R>
       </div>
 
-      <div className="mkt-stats">
-        <div className="mkt-stat">
-          <span className="mkt-stat-num">{t('mkt_stat1_n')}</span>
-          <span className="mkt-stat-label">{t('mkt_stat1_l')}</span>
-        </div>
-        <div className="mkt-stat">
-          <span className="mkt-stat-num">{t('mkt_stat2_n')}</span>
-          <span className="mkt-stat-label">{t('mkt_stat2_l')}</span>
-        </div>
-        <div className="mkt-stat">
-          <span className="mkt-stat-num">{t('mkt_stat3_n')}</span>
-          <span className="mkt-stat-label">{t('mkt_stat3_l')}</span>
-        </div>
+      <div className="stats">
+        {[1, 2, 3].map((k, i) => (
+          <R key={k} d={i * 0.1} className="stat">
+            <CountUp value={t(`mkt_stat${k}_n`)} />
+            <span className="stat-l">{t(`mkt_stat${k}_l`)}</span>
+          </R>
+        ))}
       </div>
-    </Reveal>
+    </section>
   )
 }

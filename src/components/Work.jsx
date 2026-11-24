@@ -1,164 +1,82 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useLang } from '../i18n.jsx'
-import Reveal from './Reveal.jsx'
+import { SectionHead, R, clamp, useScrollFrame } from '../motion.jsx'
+import { PROJECTS, projectTitle } from '../projects.js'
+import Btn from './Btn.jsx'
 
+// Sticky stacking cards: each project slides up over the last, which sinks back and dims.
 export default function Work() {
   const { t } = useLang()
+  const stackRef = useRef(null)
+  const n = PROJECTS.length
+
+  useScrollFrame(() => {
+    const stack = stackRef.current
+    if (!stack) return
+    const cards = [...stack.querySelectorAll('.card')]
+    const vh = window.innerHeight
+    const sticky = window.innerWidth > 900
+    cards.forEach((c, i) => {
+      const next = cards[i + 1]
+      let p = 0
+      if (sticky && next) {
+        const top = parseFloat(getComputedStyle(c).top) || 0
+        const r = next.getBoundingClientRect().top
+        p = clamp(1 - (r - top) / (vh - top))
+      }
+      c.style.setProperty('--p', p.toFixed(3))
+    })
+  })
 
   return (
-    <Reveal as="section" id="work">
-      <div className="eyebrow">{t('work_eyebrow')}</div>
-      <h2 className="section-title">{t('work_title')}</h2>
-      <p className="section-sub">{t('work_sub')}</p>
+    <section id="work" className="work" data-theme="dark">
+      <SectionHead num="02" label={t('work_eyebrow')} html={t('work_head')} sub={t('work_sub')} />
 
-      <div className="work-grid">
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/hermanos.png" alt="Hermanos Rentals — ενοικίαση scooter και διαμερισμάτων" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work8_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>Hermanos Rentals</h3>
-            <p>{t('work8_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>Multilingual</span><span>Online booking</span>
+      <div className="stack" ref={stackRef}>
+        {PROJECTS.map((p, i) => (
+          <article className="card" key={p.id} style={{ '--i': i }}>
+            <div className="card-in">
+              <div className="card-copy">
+                <div className="card-meta">
+                  <span className="mono">{String(i + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
+                  <span className={`badge ${p.internal ? 'muted' : ''}`}>
+                    <i />{p.internal ? t('work_internal') : t('work_live')}
+                  </span>
+                </div>
+                <div>
+                  <span className="card-cat">{t(p.cat)}</span>
+                  <h3 className="card-title">{projectTitle(p, t)}</h3>
+                  <p className="card-desc">{t(p.desc)}</p>
+                  <div className="tags">{p.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                </div>
+                <div className="card-act">
+                  {p.internal
+                    ? <span className="card-note">{t('work4_note')}</span>
+                    : <Btn href={p.url} external variant="light">{t('work_visit')}</Btn>}
+                </div>
+              </div>
+              <a
+                className={`card-shot ${p.internal ? 'is-internal' : ''}`}
+                href={p.url || undefined}
+                target={p.url ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <div className="reel-chrome"><i /><i /><i /><span>{p.host}</span></div>
+                <div className="shot-frame"><img src={p.img} alt={p.alt || projectTitle(p, t)} loading="lazy" /></div>
+              </a>
             </div>
-            <a className="work-link" href="https://www.hermanosrentals.com/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/casa-ventossa.png" alt="Cassa Ventossa — εξοχική κατοικία στον Μόχλο Κρήτης" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work7_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>Cassa Ventossa</h3>
-            <p>{t('work7_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>Bilingual</span><span>Booking links</span>
-            </div>
-            <a className="work-link" href="https://www.casa-ventossa.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/giatros.png" alt="Ιωάννης Ν. Ανδρομιδάς — Ωτορινολαρυγγολόγος" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work6_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>{t('work6_title')}</h3>
-            <p>{t('work6_desc')}</p>
-            <div className="work-tags">
-              <span>Next.js</span><span>Multilingual</span><span>Admin panel</span>
-            </div>
-            <a className="work-link" href="https://ioannisandromidas.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/maze.png" alt="Maze Tattoo Studio" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work1_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>Maze Tattoo Studio</h3>
-            <p>{t('work1_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>Development</span><span>Dark UI</span>
-            </div>
-            <a className="work-link" href="https://mazetattoostudio.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/1na.png" alt="Φροντιστηριακός Όμιλος ΕΝΑ" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work2_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>{t('work2_title')}</h3>
-            <p>{t('work2_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>Development</span><span>Multi-page</span>
-            </div>
-            <a className="work-link" href="https://www.1na.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/katartisi.png" alt="Τεχνικές Σχολές Επιμελητηρίου Ηρακλείου" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work3_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>katartisi.gr</h3>
-            <p>{t('work3_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>Development</span><span>WordPress</span>
-            </div>
-            <a className="work-link" href="https://katartisi.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/iek.png" alt="Ι.Ι.Ε.Κ. Επιμελητηρίου Ηρακλείου" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work5_cat')}</span>
-            <span className="wstatus">{t('work_live')}</span>
-          </div>
-          <div className="work-body">
-            <h3>{t('work5_title')}</h3>
-            <p>{t('work5_desc')}</p>
-            <div className="work-tags">
-              <span>Web Design</span><span>WordPress</span><span>Development</span>
-            </div>
-            <a className="work-link" href="https://iek.katartisi.gr/" target="_blank" rel="noopener noreferrer">
-              <span>{t('work_visit')}</span> <span className="arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="work-card">
-          <div className="work-thumb"><img src="/work/isaekcms.png" alt="ISAEK — Σύστημα Διαχείρισης ΙΕΚ (mockup, θολωμένα προσωπικά δεδομένα)" loading="lazy" /></div>
-          <div className="work-top">
-            <span className="wname">{t('work4_cat')}</span>
-            <span className="wstatus wstatus-internal">{t('work_internal')}</span>
-          </div>
-          <div className="work-body">
-            <h3>{t('work4_title')}</h3>
-            <p>{t('work4_desc')}</p>
-            <div className="work-tags">
-              <span>React</span><span>Supabase</span><span>Dashboard</span>
-            </div>
-            <span className="work-note">{t('work4_note')}</span>
-          </div>
-        </div>
+            <div className="card-dim" />
+          </article>
+        ))}
       </div>
 
-      <div className="work-secondary">
+      <R className="work-more">
+        <span className="mono">{t('work_more')}</span>
         <a href="https://www.cretanescapes.com/" target="_blank" rel="noopener noreferrer">Cretan Escapes ↗</a>
         <a href="https://www.ionos.com.gr/" target="_blank" rel="noopener noreferrer">IONOS ↗</a>
-      </div>
-    </Reveal>
+      </R>
+    </section>
   )
 }

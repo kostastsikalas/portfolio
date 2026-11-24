@@ -1,35 +1,36 @@
 import React from 'react'
 import { useLang } from '../i18n.jsx'
-import Reveal from './Reveal.jsx'
+import { SectionHead, R } from '../motion.jsx'
+import { Arrow } from './Btn.jsx'
 
 const SERVICES = [
-  { title: 'svc1_title', key: 'svc1' },
-  { title: 'svc6_title', key: 'svc6' },
-  { title: 'svc7_title', key: 'svc7' },
-  { title: 'svc2_title', key: 'svc2' },
-  { title: 'svc3_title', key: 'svc3' },
-  { title: 'svc4_title', key: 'svc4' },
-  { title: 'svc5_title', key: 'svc5' }
+  ['svc1_title', 'svc1'],
+  ['svc6_title', 'svc6'],
+  ['svc7_title', 'svc7'],
+  ['svc2_title', 'svc2'],
+  ['svc3_title', 'svc3'],
+  ['svc4_title', 'svc4'],
+  ['svc5_title', 'svc5']
 ]
 
+// Editorial index: each row floods with ink on hover.
 export default function Services() {
   const { t } = useLang()
-
   return (
-    <Reveal as="section" id="services">
-      <div className="eyebrow">{t('services_eyebrow')}</div>
-      <h2 className="section-title">{t('services_title')}</h2>
-      <p className="section-sub">{t('services_sub')}</p>
-
-      <div className="services-grid">
-        {SERVICES.map((s, i) => (
-          <div className="svc-card" key={s.title}>
-            <span className="svc-num">{String(i + 1).padStart(2, '0')}</span>
-            <div className="svc-fn">{t(s.title)}</div>
-            <p>{t(s.key)}</p>
-          </div>
+    <section id="services" className="services" data-theme="light">
+      <SectionHead num="04" label={t('services_eyebrow')} html={t('services_head')} sub={t('services_sub')} />
+      <ol className="svc-list">
+        {SERVICES.map(([title, body], i) => (
+          <R as="li" key={title} d={i * 0.05} className="svc">
+            <a href="#contact">
+              <span className="mono svc-i">{String(i + 1).padStart(2, '0')}</span>
+              <span className="svc-t">{t(title)}</span>
+              <span className="svc-b">{t(body)}</span>
+              <span className="svc-go"><Arrow /></span>
+            </a>
+          </R>
         ))}
-      </div>
-    </Reveal>
+      </ol>
+    </section>
   )
 }
