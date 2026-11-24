@@ -31,7 +31,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="contact" data-theme="dark">
+    <section id="contact" className="contact" data-theme="tint">
       <AnimatedBackground />
       <div className="contact-in">
         <R className="sec-label"><span className="mono">[ 07 ]</span><span className="mono">{t('contact_eyebrow')}</span></R>

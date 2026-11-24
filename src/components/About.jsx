@@ -20,7 +20,7 @@ export default function About() {
 
   return (
     <section id="about" className="about" data-theme="light">
-      <SectionHead num="03" label={t('about_eyebrow')} html={t('about_head')} />
+      <SectionHead num="04" label={t('about_eyebrow')} html={t('about_head')} />
 
       <div className="about-grid">
         <div className="about-bio">

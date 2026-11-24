@@ -17,11 +17,11 @@ export default function Manifesto() {
     const vh = window.innerHeight
     const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.3))
     const n = spans.length
-    spans.forEach((s, i) => { s.style.opacity = 0.16 + 0.84 * clamp((p * (n + 4) - i) / 4) })
+    spans.forEach((s, i) => { s.style.opacity = 0.2 + 0.8 * clamp((p * (n + 4) - i) / 4) })
   })
 
   return (
-    <section id="manifesto" className="manifesto" data-theme="dark">
+    <section id="manifesto" className="manifesto" data-theme="tint">
       <R className="sec-label"><span className="mono">[ 01 ]</span><span className="mono">{t('manifesto_label')}</span></R>
       <p className="manifesto-text" ref={ref}>
         {words.map((w, i) => {
